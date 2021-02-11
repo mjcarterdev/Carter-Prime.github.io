@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  color: #44cf6c;
+}
+
+ul {
+  list-style: none;
+}
+
+.nav-container {
+  background-color: #231f34;
+}
+
+.nav-container .nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 20rem;
+}
+
+.nav-container .nav-bar .logo {
+  font-size: 1.5rem;
+  color: #44cf6c;
+  padding: 0.5rem;
+  align-self: center;
+}
+
+.nav-container .nav-bar .nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-container .nav-bar .nav-list .nav-item {
+  margin-left: 4rem;
+  padding: 0.5rem;
+  align-self: center;
+}
+
+.nav-container .nav-bar .nav-list .nav-item a {
+  font-size: 1.2rem;
+}
+
+.nav-container .nav-bar .social-media {
+  display: flex;
+  flex-direction: row;
+  margin-left: 4rem;
+  padding: 0.5rem;
+}
+
+.nav-container .nav-bar .social-media a {
+  margin-left: 4rem;
+  padding: 0.5rem;
+}
+
+.nav-container .nav-bar .social-media a img {
+  width: 36px;
+  height: 36px;
+}
+
+.nav-container .nav-bar .social-media .gitIcon {
+  fill: #ffffff;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #27233a;
+  height: 95vh;
+  justify-content: flex-start;
+  align-content: center;
+  padding: 0 20rem;
+}
+
+.landing-container .landing-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-container .landing-left h1 {
+  font-size: 6rem;
+  color: #ffffff;
+  margin-top: 15rem;
+  letter-spacing: 0.5rem;
+}
+
+.landing-container .landing-left h4 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-top: 2rem;
+}
+
+.landing-container .landing-left .toggle-scroll {
+  margin-top: 2rem;
+}
+
+.landing-container .landing-right {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15rem;
+}
+
+.underline {
+  border-top: 4px solid #5863f8;
+  animation: draw-line 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes draw-line {
+  0% {
+    width: 0;
+  }
+  50% {
+    border-top: 4px solid #44cf6c;
+  }
+  100% {
+    width: 38vw;
+    border-top: 4px solid #f61067;
+    overflow: hidden;
+  }
+}
+/*# sourceMappingURL=main.css.map */

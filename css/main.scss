@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+$color: (
+  primary: #27233a,
+  primaryDark: #231f34,
+  secondary: #ffffff,
+  blueAccent: #5863f8,
+  redAccent: #f61067,
+  greenAccent: #44cf6c,
+);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+a {
+  text-decoration: none;
+  color: map-get($color, secondary);
+}
+
+a:hover {
+  color: map-get($color, greenAccent);
+}
+
+ul {
+  list-style: none;
+}
+
+.nav-container {
+  background-color: map-get($color, primaryDark);
+
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 20rem;
+
+    .logo {
+      font-size: 1.5rem;
+      color: map-get($color, greenAccent);
+      padding: 0.5rem;
+      align-self: center;
+    }
+
+    .nav-list {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .nav-item {
+        margin-left: 4rem;
+        padding: 0.5rem;
+        align-self: center;
+
+        a {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .social-media {
+      display: flex;
+      flex-direction: row;
+      margin-left: 4rem;
+      padding: 0.5rem;
+
+      a {
+        margin-left: 4rem;
+        padding: 0.5rem;
+
+        img {
+          width: 36px;
+          height: 36px;
+        }
+      }
+
+      .gitIcon {
+        fill: map-get($color, secondary);
+      }
+    }
+  }
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: row;
+  background-color: map-get($color, primary);
+  height: 95vh;
+  justify-content: flex-start;
+  align-content: center;
+  padding: 0 20rem;
+
+  .landing-left {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 6rem;
+      color: map-get($color, secondary);
+      margin-top: 15rem;
+      letter-spacing: 0.5rem;
+    }
+
+    h4 {
+      font-size: 2rem;
+      color: map-get($color, secondary);
+      margin-top: 2rem;
+    }
+
+    .toggle-scroll {
+      margin-top: 2rem;
+    }
+  }
+
+  .landing-right {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15rem;
+  }
+}
+.underline {
+  border-top: 4px solid map-get($color, blueAccent);
+  animation: draw-line 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes draw-line {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    border-top: 4px solid map-get($color, greenAccent);
+  }
+
+  100% {
+    width: 38vw;
+    border-top: 4px solid map-get($color, redAccent);
+    overflow: hidden;
+  }
+}
