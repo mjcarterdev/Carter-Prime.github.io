@@ -231,6 +231,7 @@ ul {
   animation-fill-mode: forwards;
   z-index: 0.5;
 }
+
 .menu-closed {
   position: fixed;
   top: 0px;
@@ -240,7 +241,7 @@ ul {
 .menu {
   display: none;
   height: 50%;
-  margin-top: 80px;
+  padding-top: 80px;
 }
 
 .menu-list {
