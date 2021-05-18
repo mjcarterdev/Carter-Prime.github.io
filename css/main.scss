@@ -4,10 +4,56 @@ $color: (
   primary: #27233a,
   primaryDark: #231f34,
   secondary: #ffffff,
-  blueAccent: #5863f8,
+  blueAccent: #343dfd,
   redAccent: #f61067,
   greenAccent: #44cf6c,
 );
+
+// calculate a circle's circumference based on radius
+@function circumference($r) {
+  $pi: 3.141592653;
+  @return 2 * $pi * $r;
+}
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
 
 * {
   margin: 0;
@@ -29,85 +75,220 @@ ul {
   list-style: none;
 }
 
-.nav-container {
-  background-color: map-get($color, primaryDark);
+.background-image {
+  background-image: url(../assets/image/background.jpg);
+  background-size: 100% 100%;
+}
 
-  .nav-bar {
-    display: flex;
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+  background: rgba(39, 35, 58, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  .logo {
+    font-size: 1rem;
+    color: map-get($color, greenAccent);
+    padding: 0.5rem;
+    align-self: center;
+    margin-left: 2rem;
+  }
+
+  .nav-list {
+    display: none;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 20rem;
 
-    .logo {
-      font-size: 1.5rem;
-      color: map-get($color, greenAccent);
-      padding: 0.5rem;
-      align-self: center;
-    }
-
-    .nav-list {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      .nav-item {
-        margin-left: 4rem;
-        padding: 0.5rem;
-        align-self: center;
-
-        a {
-          font-size: 1.2rem;
-        }
-      }
-    }
-
-    .social-media {
-      display: flex;
-      flex-direction: row;
+    .nav-item {
       margin-left: 4rem;
       padding: 0.5rem;
+      align-self: center;
 
       a {
-        margin-left: 4rem;
-        padding: 0.5rem;
-
-        img {
-          width: 36px;
-          height: 36px;
-        }
+        font-size: 1.2rem;
+        white-space: nowrap;
       }
+    }
 
-      .gitIcon {
-        fill: map-get($color, secondary);
+    @include lg {
+      display: flex;
+    }
+  }
+
+  .social-media {
+    display: flex;
+    flex-direction: row;
+    margin-right: 6rem;
+    padding: 0.5rem;
+    margin-top: 5px;
+    align-items: center;
+
+    a {
+      margin-left: 2rem;
+      padding: 0.5rem;
+
+      img {
+        width: 36px;
+        height: 36px;
       }
+    }
+
+    .gitIcon {
+      fill: map-get($color, secondary);
     }
   }
 }
 
+.nav {
+  // Toggle Button
+  &__toggle {
+    display: inline-block;
+    position: absolute;
+    z-index: 10;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    outline: 0;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.15s linear;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    @include lg {
+      display: none;
+    }
+  }
+}
+
+.menuicon {
+  display: block;
+  cursor: pointer;
+  color: white;
+
+  transform: rotate(0deg);
+  transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &__bar,
+  &__circle {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
+  &__bar {
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-in-out;
+  }
+  &__circle {
+    transition: stroke-dashoffset 0.3s linear 0.1s;
+    stroke-dashoffset: circumference(23); // 23 is the <circle>'s radius
+    stroke-dasharray: circumference(23);
+  }
+}
+
+.nav--open {
+  //animate the menu icon
+  .menuicon {
+    color: white;
+    transform: rotate(180deg);
+
+    &__circle {
+      stroke-dashoffset: 0;
+    }
+    &__bar:nth-child(1),
+    &__bar:nth-child(4) {
+      opacity: 0;
+    }
+    &__bar:nth-child(2) {
+      transform: rotate(45deg);
+    }
+    &__bar:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.menu-open {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background: rgba(39, 35, 58, 0.9);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: expandMenu 0.5s linear;
+  animation-fill-mode: forwards;
+  z-index: 0.5;
+}
+.menu-closed {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+}
+
+.menu {
+  display: none;
+  height: 50%;
+  margin-top: 80px;
+}
+
+.menu-list {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  a {
+    font-size: 0rem;
+    animation: scaleFontSize 0.5s linear;
+    animation-fill-mode: forwards;
+  }
+}
+.show {
+  display: flex;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 .landing-container {
   display: flex;
-  flex-direction: row;
-  background-color: map-get($color, primary);
-  height: 95vh;
+  flex-direction: column;
+  height: 100vh;
   justify-content: flex-start;
   align-content: center;
-  padding: 0 20rem;
 
   .landing-left {
     display: flex;
     flex-direction: column;
-
+    margin: 0 2rem;
     h1 {
-      font-size: 6rem;
+      font-size: 2.5rem;
       color: map-get($color, secondary);
-      margin-top: 15rem;
+      margin-top: 5rem;
       letter-spacing: 0.5rem;
     }
 
     h4 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: map-get($color, secondary);
       margin-top: 2rem;
+      letter-spacing: 0.2rem;
     }
 
     .toggle-scroll {
@@ -116,11 +297,22 @@ ul {
   }
 
   .landing-right {
-    display: flex;
+    display: none;
     flex-direction: column;
-    margin-top: 15rem;
+    padding-top: 15rem;
   }
 }
+
+.current-project-container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  background-size: 100% 100%;
+  height: 100vh;
+  justify-content: flex-start;
+  align-content: center;
+}
+
 .underline {
   border-top: 4px solid map-get($color, blueAccent);
   animation: draw-line 5s;
@@ -137,8 +329,51 @@ ul {
   }
 
   100% {
-    width: 38vw;
+    width: 100%;
     border-top: 4px solid map-get($color, redAccent);
     overflow: hidden;
+  }
+}
+
+@keyframes expandMenu {
+  0% {
+    width: 0%;
+    height: 0%;
+  }
+
+  50% {
+    width: 50%;
+    height: 50%;
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes closeMenu {
+  0% {
+    width: 100%;
+    height: 100%;
+  }
+
+  50% {
+    width: 50%;
+    height: 50%;
+  }
+
+  100% {
+    width: 0%;
+    height: 0%;
+  }
+}
+
+@keyframes scaleFontSize {
+  from {
+    font-size: 0rem;
+  }
+  to {
+    font-size: 2rem;
   }
 }

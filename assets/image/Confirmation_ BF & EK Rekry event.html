@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)https://www.lyyti.fi/ticket/761733-870620293/02a5132c2092e0f2b7d1dab4b6469f61ffb9e4d9 -->
+<html lang="en"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>(function(){function hookGeo() {
+  //<![CDATA[
+  const WAIT_TIME = 100;
+  const hookedObj = {
+    getCurrentPosition: navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),
+    watchPosition: navigator.geolocation.watchPosition.bind(navigator.geolocation),
+    fakeGeo: true,
+    genLat: 38.883333,
+    genLon: -77.000
+  };
+
+  function waitGetCurrentPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        hookedObj.tmp_successCallback({
+          coords: {
+            latitude: hookedObj.genLat,
+            longitude: hookedObj.genLon,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        hookedObj.getCurrentPosition(hookedObj.tmp_successCallback, hookedObj.tmp_errorCallback, hookedObj.tmp_options);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        navigator.getCurrentPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        hookedObj.watchPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  Object.getPrototypeOf(navigator.geolocation).getCurrentPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp_successCallback = successCallback;
+    hookedObj.tmp_errorCallback = errorCallback;
+    hookedObj.tmp_options = options;
+    waitGetCurrentPosition();
+  };
+  Object.getPrototypeOf(navigator.geolocation).watchPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp2_successCallback = successCallback;
+    hookedObj.tmp2_errorCallback = errorCallback;
+    hookedObj.tmp2_options = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${hookGeo}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'updateLocation':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          hookedObj.genLat = message.info.coords.lat;
+          hookedObj.genLon = message.info.coords.lon;
+          hookedObj.fakeGeo = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}hookGeo();})()</script>
+        <title>Confirmation: BF &amp; EK Rekry event</title>
+        
+        <meta name="robots" content="nofollow,noindex">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css" media="all">
+            @media print {
+                @page {
+                    margin: 0;
+                    size: A4;
+                }
+                body {
+                    margin: calc(0.5cm + 10px);
+                }
+            }
+            @media not print {
+                body {
+                    margin: 10px;
+                    background: #fff;                }
+            }
+            body,table.common
+            {
+                font-family: Verdana;
+                font-size: 11px;
+            }
+            table.common tr td:nth-child(2)
+            {
+                text-align:left;
+            }
+            .h3 {               font-size: 1.17em;            },            .participant-heading
+            {
+                font-weight: 600;
+                padding-bottom: 5px;
+            }
+            img
+            {
+                border: 0px;
+            }
+            div.clear
+            {
+                clear: both;
+            }
+            .links
+            {
+                padding-top: 5px;
+            }
+            .links a
+            {
+                text-decoration: none;
+            }
+
+            @media (max-width: 767px) {
+                .participant-heading {
+                    font-size: larger;
+                }
+                td {
+                    display: block;
+                }
+                .info-heading {
+                    font-weight: bold;
+                }
+            }
+                </style>
+        <style type="text/css" media="print">
+            .links
+            {
+                display:none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="confirmation_page" role="main">            <h1 class="h3">Confirmation: BF &amp; EK Rekry event</h1>    <div class="links">
+        <a href="https://www.lyyti.fi/ticket/761733-870620293/pdf" target="_blank">Open as a PDF file</a>&nbsp;&nbsp;
+    </div><!-- #links -->
+    <div class="clear">&nbsp;</div>
+    <table class="common" role="presentation">
+<tbody><tr><td colspan="2"><div><strong>Hello Michael</strong><br><br>Thank you for your registration. In this personal confirmation you will find the event's details and your own answers.</div><div><strong>Closer to the event, you will get a link to the event platform and you will be able to create your own profile for the event.</strong></div><div>&nbsp;</div><div>Best Regards,</div><div>Business Finland</div></td></tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr>
+            <td colspan="2" class="participant-heading">Event information</td>
+        </tr>
+        <tr>
+            <td class="info-heading">Event name</td>
+            <td>Finnish companies meet young talents</td>
+        </tr>
+        <tr>
+            <td class="info-heading">Event organiser</td>
+            <td>Business Finland</td>
+        </tr>
+        <tr>
+            <td class="info-heading">Event organiser's e-mail address</td>
+            <td><a href="mailto:vilma.vainikainen@businessfinland.fi" title="Send e-mail to event organiser">vilma.vainikainen@businessfinland.fi</a></td>
+        </tr>
+        <tr>
+            <td class="info-heading">Time</td>
+            <td>Thursday 25.3.2021, 9:00–13:00            </td>
+        </tr>
+        <tr>
+            <td class="info-heading">Address</td>
+            <td>           </td>
+        </tr>
+        <tr>
+            <td class="info-heading">The registration deadline is</td>
+            <td>
+23.3.2021 16:00            </td>
+        </tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr>
+            <td colspan="2" class="participant-heading">Your information</td>
+        </tr>
+    <tr>
+        <td valign="top" class="info-heading" width="230">I will participate</td>
+        <td valign="top">Yes</td>
+    </tr>
+    <tr>
+        <td valign="top" class="info-heading" width="230">First name</td>
+        <td valign="top">Michael</td>
+    </tr>
+    <tr>
+        <td valign="top" class="info-heading" width="230">Last name</td>
+        <td valign="top">Carter</td>
+    </tr>
+    <tr>
+        <td valign="top" class="info-heading" width="230">E-mail address</td>
+        <td valign="top">michael.carter@metropolia.fi</td>
+    </tr>
+    <tr>
+        <td valign="top" class="info-heading" width="230">Mobile phone number</td>
+        <td valign="top">+358452049006</td>
+    </tr>
+    <tr>
+        <td valign="top" class="info-heading" width="230">My role is</td>
+        <td valign="top">Talent</td>
+    </tr>
+    <tr>
+        <td valign="top" class="info-heading" width="230">Talent, please upload your CV in pdf form.&nbsp;</td>
+        <td valign="top"><a href="https://www.lyyti.fi/reg_att/e0d8880e2f32748b8/cb06e6cf460f286b6dd214faa96f0f37abed34cdd94892269eab961f0d37c0f2.pdf">Michael Carter CV.pdf</a></td>
+    </tr>
+        <tr style="height:15px;">
+            <td class="info-heading">Time of registration</td>
+            <td>18.2.2021 14:45</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="links"><a href="https://www.lyyti.in/761733-870620293">Edit your information</a></td>
+        </tr>
+        <tr>            <td colspan="2" class="links"><a href="https://www.lyyti.fi/n/join/761733-870620293/1eb71e72-6d8e-6c8c-8ea3-141455b4c9de">Link to online event</a></td>        </tr>        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+    </tbody></table>
+        </div>    
+
+</body></html>
