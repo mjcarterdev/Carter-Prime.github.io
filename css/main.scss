@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+// Website color palette
 $color: (
   primary: #27233a,
   primaryDark: #231f34,
@@ -26,6 +27,9 @@ $screen-lg-min: 992px;
 
 // Large tablets and desktops
 $screen-xl-min: 1200px;
+
+// Extra large tablets and desktops
+$screen-xxl-min: 1400px;
 
 // Small devices
 @mixin sm {
@@ -55,6 +59,14 @@ $screen-xl-min: 1200px;
   }
 }
 
+// Extra extra large devices
+@mixin xxl {
+  @media (min-width: #{$screen-xxl-min}) {
+    @content;
+  }
+}
+
+// Resets
 * {
   margin: 0;
   padding: 0;
@@ -62,6 +74,7 @@ $screen-xl-min: 1200px;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
 }
+
 a {
   text-decoration: none;
   color: map-get($color, secondary);
@@ -80,6 +93,7 @@ ul {
   background-size: 100% 100%;
 }
 
+// Navigation
 .nav-bar {
   display: flex;
   flex-direction: row;
@@ -91,17 +105,26 @@ ul {
   -webkit-backdrop-filter: blur(4px);
 
   .logo {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: map-get($color, greenAccent);
-    padding: 0.5rem;
+    padding: 10px;
     align-self: center;
-    margin-left: 2rem;
+    margin-left: 20px;
+
+    @include xl {
+      margin-left: 5rem;
+    }
+
+    @include xxl {
+      margin-left: 10rem;
+    }
   }
 
   .nav-list {
     display: none;
     flex-direction: row;
     justify-content: space-between;
+    opacity: 0;
 
     .nav-item {
       margin-left: 4rem;
@@ -116,60 +139,78 @@ ul {
 
     @include lg {
       display: flex;
+      opacity: 1;
+      animation: showNav 2s linear;
     }
   }
-
+  // Media Icons LinkedIn / GitHub
   .social-media {
     display: flex;
     flex-direction: row;
-    margin-right: 6rem;
-    padding: 0.5rem;
+    margin-right: 80px;
+    padding: 5px;
     margin-top: 5px;
     align-items: center;
+    overflow: hidden;
 
     a {
-      margin-left: 2rem;
+      margin-left: 1rem;
       padding: 0.5rem;
 
       img {
-        width: 36px;
-        height: 36px;
+        width: 24px;
+        height: 24px;
+
+        @include lg {
+          transform: scale(1.5);
+        }
       }
     }
 
     .gitIcon {
       fill: map-get($color, secondary);
     }
-  }
-}
-
-.nav {
-  // Toggle Button
-  &__toggle {
-    display: inline-block;
-    position: absolute;
-    z-index: 10;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    outline: 0;
-    right: 15px;
-    top: 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background-color 0.15s linear;
-
-    &:hover,
-    &:focus {
-      background-color: rgba(0, 0, 0, 0.5);
-    }
 
     @include lg {
-      display: none;
+      margin-right: 2rem;
+    }
+
+    @include xl {
+      margin-right: 5rem;
+    }
+
+    @include xxl {
+      margin-right: 10rem;
     }
   }
 }
 
+// Mobile menu
+.nav__toggle {
+  display: inline-block;
+  position: absolute;
+  z-index: 10;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  outline: 0;
+  right: 20px;
+  top: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.15s linear;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  @include lg {
+    display: none;
+  }
+}
+
+// Mobile menu SVG
 .menuicon {
   display: block;
   cursor: pointer;
@@ -192,11 +233,12 @@ ul {
   }
   &__circle {
     transition: stroke-dashoffset 0.3s linear 0.1s;
-    stroke-dashoffset: circumference(23); // 23 is the <circle>'s radius
+    stroke-dashoffset: circumference(23);
     stroke-dasharray: circumference(23);
   }
 }
 
+// Used once mobile menu is pressed
 .nav--open {
   //animate the menu icon
   .menuicon {
@@ -219,6 +261,7 @@ ul {
   }
 }
 
+// Expands overlay for mobile menu
 .menu-open {
   position: fixed;
   top: 0px;
@@ -232,6 +275,7 @@ ul {
   z-index: 0.5;
 }
 
+// retracts menu overlay
 .menu-closed {
   position: fixed;
   top: 0px;
@@ -243,7 +287,7 @@ ul {
   height: 50%;
   padding-top: 80px;
 }
-
+// Navigation links in mobile menu
 .menu-list {
   display: flex;
   width: 100%;
@@ -257,29 +301,30 @@ ul {
     animation-fill-mode: forwards;
   }
 }
-.show {
-  display: flex;
-}
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-}
 
+// First section of website
 .landing-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  justify-content: flex-start;
+  justify-content: center;
   align-content: center;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
   .landing-left {
     display: flex;
     flex-direction: column;
-    margin: 0 2rem;
+    margin: 0 5rem;
+    justify-content: center;
     h1 {
       font-size: 2.5rem;
+      max-width: 720px;
       color: map-get($color, secondary);
       margin-top: 5rem;
       letter-spacing: 0.5rem;
@@ -295,15 +340,72 @@ ul {
     .toggle-scroll {
       margin-top: 2rem;
     }
+    @include lg {
+      h1 {
+        font-size: 3rem;
+        animation: font-size 1s linear;
+      }
+
+      h4 {
+        font-size: 2rem;
+      }
+    }
+
+    @include xl {
+      h1 {
+        font-size: 3.5rem;
+      }
+    }
+    @include xxl {
+      margin-left: 10rem;
+
+      h1 {
+        font-size: 4rem;
+      }
+    }
   }
 
   .landing-right {
     display: none;
     flex-direction: column;
-    padding-top: 15rem;
+    padding-top: 5rem;
+
+    .triangle-animation {
+      transform: scale(1.2);
+      animation: transform 2s;
+    }
+
+    @include lg {
+      display: flex;
+    }
+
+    @include xl {
+      margin-right: 5rem;
+      margin-left: 10rem;
+
+      .triangle-animation {
+        transform: scale(1.5);
+      }
+    }
+    @include xxl {
+      margin-right: 10rem;
+      margin-left: 20rem;
+
+      .triangle-animation {
+        transform: scale(2);
+      }
+    }
   }
 }
 
+// Animation of the underline on the headerline
+.underline {
+  border-top: 4px solid map-get($color, blueAccent);
+  animation: draw-line 5s;
+  animation-fill-mode: forwards;
+}
+
+// Second Section of website
 .current-project-container {
   display: flex;
   flex-direction: row;
@@ -314,12 +416,7 @@ ul {
   align-content: center;
 }
 
-.underline {
-  border-top: 4px solid map-get($color, blueAccent);
-  animation: draw-line 5s;
-  animation-fill-mode: forwards;
-}
-
+// Underline animation
 @keyframes draw-line {
   0% {
     width: 0;
@@ -336,6 +433,39 @@ ul {
   }
 }
 
+@keyframes draw-line-75 {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    border-top: 4px solid map-get($color, greenAccent);
+  }
+
+  100% {
+    width: 75%;
+    border-top: 4px solid map-get($color, redAccent);
+    overflow: hidden;
+  }
+}
+
+@keyframes draw-line-50 {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    border-top: 4px solid map-get($color, greenAccent);
+  }
+
+  100% {
+    width: 50%;
+    border-top: 4px solid map-get($color, redAccent);
+    overflow: hidden;
+  }
+}
+
+// Open menu animation
 @keyframes expandMenu {
   0% {
     width: 0%;
@@ -353,6 +483,7 @@ ul {
   }
 }
 
+// Close menu animation
 @keyframes closeMenu {
   0% {
     width: 100%;
@@ -370,6 +501,7 @@ ul {
   }
 }
 
+// Scale social icon size
 @keyframes scaleFontSize {
   from {
     font-size: 0rem;
@@ -377,4 +509,28 @@ ul {
   to {
     font-size: 2rem;
   }
+}
+
+// Gradual display of navbar on screen change
+@keyframes showNav {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+// utility
+.show {
+  display: flex;
+}
+
+// Stick navigation to top of viewport
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }

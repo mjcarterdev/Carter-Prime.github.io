@@ -1,7 +1,7 @@
 console.log('file was loaded');
 
 const nav = document.querySelector('#navigation');
-const body = document.querySelector('.body');
+const body = document.querySelector('body');
 const navTop = navigation.offsetTop;
 
 const menu = document.querySelector('.menu');
@@ -28,7 +28,6 @@ menuToggle.addEventListener('click', (e) => {
   e.preventDefault();
   isMenuOpen = !isMenuOpen;
 
-  // toggle a11y attributes and active class
   nav.classList.toggle('nav--open');
   closedMenu.classList.toggle('menu-open');
   menu.classList.toggle('show');
