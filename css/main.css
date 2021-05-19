@@ -613,6 +613,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: fit-content;
 }
 
 .project-container .project-title {
