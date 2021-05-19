@@ -98,7 +98,7 @@ ul {
 .nav-bar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   overflow: hidden;
   background: rgba(39, 35, 58, 0.6);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -109,7 +109,11 @@ ul {
     font-size: 0.8rem;
     color: map-get($color, greenAccent);
     align-self: center;
-    margin-left: 20px;
+    margin-left: -30px;
+
+    @include lg {
+      margin-left: 20px;
+    }
 
     @include xl {
       margin-left: 5rem;
@@ -566,21 +570,22 @@ ul {
 
 // Latest Project Section
 
-.current-project-container {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  background-size: 100% 100%;
-  justify-content: flex-start;
-  align-content: center;
-}
-
 .section-header {
   width: fit-content;
   margin-top: 50px;
-  margin-left: 20px;
+  margin-left: 40px;
   border-bottom: 2px solid map-get($color, redAccent);
   font-size: 1.2rem;
+
+  @include lg {
+    margin-left: 15%;
+    align-self: flex-start;
+  }
+  @include xl {
+    font-size: 2.4rem;
+    margin-left: 15%;
+    align-self: flex-start;
+  }
 }
 
 .project-title {
@@ -588,6 +593,18 @@ ul {
   margin: 20px;
   font-size: 3rem;
   color: map-get($color, blueAccent);
+  margin-left: 40px;
+
+  @include lg {
+    margin-left: 0px;
+    align-self: flex-start;
+  }
+
+  @include xl {
+    font-size: 5rem;
+    margin-left: 0px;
+    align-self: flex-start;
+  }
 }
 
 .card {
@@ -642,22 +659,75 @@ ul {
   color: map-get($color, blueAccent);
   padding-left: 10px;
   cursor: pointer;
+  font-weight: 600;
+}
+
+.past-project-container {
+  display: flex;
+  flex-direction: column;
+
+  @include lg {
+    align-items: center;
+  }
 }
 
 .project-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+
+  .project-title {
+    align-self: flex-start;
+  }
+  @include lg {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.2fr 0.8fr;
+    grid-row-gap: 2rem;
+    margin-bottom: 2rem;
+    min-height: 800px;
+    width: 70%;
+
+    .card {
+      height: fit-content;
+    }
+  }
 }
 
 .image-container {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  max-width: 500px;
-  height: 500px;
-  margin: 20px 0px;
-  background-color: green;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: fit-content;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  overflow: hidden;
+  justify-self: flex-end;
+  align-self: center;
+  height: fit-content;
+  margin: 2rem 0rem;
+
+  img {
+    width: 400px;
+    height: 700px;
+    margin-bottom: -10px;
+  }
+
+  .gamer-img {
+    width: 100%;
+    height: 300px;
+  }
+
+  @include lg {
+    justify-self: flex-end;
+    align-self: flex-end;
+  }
+
+  @include xl {
+    .gamer-img {
+      height: 400px;
+    }
+  }
 }
 
 .project-tag-list {
@@ -699,6 +769,19 @@ ul {
 
   .card:last-child {
     margin-bottom: 50px;
+  }
+
+  @include lg {
+    flex-direction: row;
+    height: 100vh;
+    justify-content: space-around;
+    .card:last-child {
+      margin-bottom: 0px;
+    }
+
+    .card {
+      width: 27%;
+    }
   }
 }
 
