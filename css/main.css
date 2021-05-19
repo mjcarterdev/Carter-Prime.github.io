@@ -645,12 +645,12 @@ ul {
   justify-self: flex-end;
   align-self: center;
   height: fit-content;
-  margin: 2rem 0rem;
+  margin: 2rem 2rem;
 }
 
 .image-container img {
-  width: 400px;
-  height: 700px;
+  width: 350px;
+  height: 600px;
   margin-bottom: -10px;
 }
 
