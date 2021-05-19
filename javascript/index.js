@@ -10,18 +10,16 @@ const closedMenu = document.querySelector('.menu-closed');
 const navList = document.querySelector('.nav-list');
 let isMenuOpen = false;
 
-function stickyNavigation() {
-  console.log('navTop = ' + navTop);
-  console.log('scrollY = ' + window.scrollY);
+// function stickyNavigation() {
 
-  if (window.scrollY >= navTop) {
-    document.getElementById('navigation').classList.add('sticky');
-  } else {
-    document.getElementById('navigation').classList.remove('sticky');
-  }
-}
+//   if (window.scrollY >= navTop) {
+//     document.getElementById('navigation').classList.add('sticky');
+//   } else {
+//     document.getElementById('navigation').classList.remove('sticky');
+//   }
+// }
 
-window.addEventListener('scroll', stickyNavigation);
+// window.addEventListener('scroll', stickyNavigation);
 
 // TOGGLE MENU ACTIVE STATE
 menuToggle.addEventListener('click', (e) => {
