@@ -599,6 +599,7 @@ ul {
 .past-project-container {
   display: flex;
   flex-direction: column;
+  height: fit-content;
 }
 
 @media (min-width: 992px) {

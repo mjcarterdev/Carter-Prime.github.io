@@ -665,6 +665,7 @@ ul {
 .past-project-container {
   display: flex;
   flex-direction: column;
+  height: fit-content;
 
   @include lg {
     align-items: center;
