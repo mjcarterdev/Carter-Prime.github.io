@@ -274,7 +274,7 @@ ul {
   -webkit-backdrop-filter: blur(4px);
   animation: expandMenu 0.5s linear;
   animation-fill-mode: forwards;
-  z-index: 0.5;
+  z-index: 1;
 }
 
 // retracts menu overlay
@@ -571,25 +571,21 @@ ul {
   flex-direction: column;
   background-color: white;
   background-size: 100% 100%;
-  height: 100vh;
   justify-content: flex-start;
   align-content: center;
 }
 
 .section-header {
-  position: relative;
   width: fit-content;
-  top: 50px;
-  left: 20px;
+  margin-top: 50px;
+  margin-left: 20px;
   border-bottom: 2px solid map-get($color, redAccent);
   font-size: 1.2rem;
 }
 
 .project-title {
   width: fit-content;
-  position: relative;
-  top: 50px;
-  left: 20px;
+  margin: 20px;
   font-size: 3rem;
   color: map-get($color, blueAccent);
 }
@@ -599,7 +595,7 @@ ul {
   flex-direction: column;
   width: 90%;
   max-width: 500px;
-  height: 500px;
+  min-height: 500px;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(2.5px);
@@ -607,7 +603,35 @@ ul {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.skill-card {
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(39, 35, 58, 0.4);
+  .skillIcon {
+    width: 25%;
+    max-width: 120px;
+  }
+
+  ul {
+    text-decoration: none;
+
+    li {
+      margin-bottom: 20px;
+      text-align: center;
+      color: white;
+      font-size: 1rem;
+    }
+
+    li:first-child {
+      font-size: 1.5rem;
+      color: map-get($color, redAccent);
+      margin-bottom: 40px;
+      font-weight: 500;
+    }
+  }
 }
 
 .text {
@@ -624,8 +648,6 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  top: 100px;
 }
 
 .image-container {
@@ -645,10 +667,81 @@ ul {
 
   li {
     color: white;
-    background-color: map-get($color, redAccent80);
+    background-image: linear-gradient(75deg, #ff4d91, #f61067);
+    background-size: 150%;
+    background-position: left;
+    transition: background-position linear;
     margin: 10px;
     text-align: center;
     border-radius: 2px;
-    padding: 3px;
+    padding: 3px 7px;
+    cursor: context-menu;
+
+    &:hover,
+    &:focus {
+      background-position: right;
+    }
+  }
+}
+
+// Section 3 My Skills
+
+.my-skills-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .card {
+    margin-top: 50px;
+  }
+
+  .card:last-child {
+    margin-bottom: 50px;
+  }
+}
+
+// Section 4 my projects
+
+// Section 5 my education
+
+.education-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 100vh;
+}
+
+// Contact section
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+  div {
+    width: fit-content;
+    justify-content: center;
+
+    p {
+      color: white;
+    }
+  }
+  a {
+    width: fit-content;
+  }
+}
+
+//Footer
+
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: map-get($color, primaryDark);
+  p {
+    color: map-get($color, greenAccent);
   }
 }
