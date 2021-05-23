@@ -1,5 +1,3 @@
-console.log('file was loaded');
-
 const nav = document.querySelector('#navigation');
 const menu = document.querySelector('.menu');
 const menuToggle = document.querySelector('.menuicon');
@@ -17,8 +15,6 @@ menuToggle.addEventListener('click', (e) => {
   closedMenu.classList.toggle('menu-open');
   menu.classList.toggle('show');
 });
-
-console.log(navList);
 
 menuList.addEventListener('click', (e) => {
   nav.classList.toggle('nav--open');
