@@ -522,7 +522,6 @@ section {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(2.5px);
-  -webkit-backdrop-filter: blur(8.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 2rem;
@@ -530,13 +529,14 @@ section {
 }
 
 .skill-card {
-  width: 90%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 450px;
   max-height: 500px;
   align-self: center;
   justify-content: space-around;
   align-items: center;
   background: rgba(39, 35, 58, 0.4);
+  margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 2rem;
   .skillIcon {
@@ -592,7 +592,6 @@ section {
 
   .section-header {
     justify-self: flex-start;
-    margin-left: 0rem;
   }
 
   .projects-grid {
