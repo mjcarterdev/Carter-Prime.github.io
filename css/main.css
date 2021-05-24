@@ -146,9 +146,15 @@ h5 {
   height: 28px;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .nav-bar .social-media a img {
     transform: scale(1.3);
+  }
+}
+
+@media (min-width: 1800px) {
+  .nav-bar .social-media a img {
+    margin-left: 4rem;
   }
 }
 
@@ -487,7 +493,7 @@ h5 {
 }
 
 .card .text {
-  width: 45ch;
+  width: 40ch;
   padding-left: 2rem;
 }
 
