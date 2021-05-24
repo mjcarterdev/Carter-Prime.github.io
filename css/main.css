@@ -309,9 +309,18 @@ h5 {
 .landing-container .landing-left {
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 80%;
   height: fit-content;
   margin: 2rem;
+  overflow: hidden;
+}
+
+.landing-container .landing-left .title {
+  font-size: 2rem;
+}
+
+.landing-container .landing-left .name {
+  font-size: 1rem;
 }
 
 .landing-container .landing-left .toggle-scroll {
@@ -788,7 +797,7 @@ h5 {
 
 .education-container h1 {
   margin-left: 2rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
@@ -927,6 +936,7 @@ h5 {
   display: flex;
   flex-direction: column;
   color: white;
+  border: 2px solid green;
 }
 
 .education-card h2 {
@@ -934,7 +944,6 @@ h5 {
   max-width: 14ch;
   font-size: 1.5rem;
   font-weight: 500;
-  padding-right: 0rem;
   margin-bottom: 2rem;
   text-align: center;
   border-bottom: solid 2px #f61067;
@@ -942,7 +951,7 @@ h5 {
 
 .education-card ul > li {
   font-size: 1rem;
-  width: 35ch;
+  width: 250px;
   margin-bottom: 0.6rem;
 }
 
