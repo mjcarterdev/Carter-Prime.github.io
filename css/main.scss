@@ -540,8 +540,9 @@ h5 {
   justify-content: space-around;
 
   .text {
-    width: 40ch;
+    width: 100%;
     padding-left: 2rem;
+    padding-right: 2rem;
 
     @include sm {
       width: 100%;

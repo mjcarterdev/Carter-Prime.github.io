@@ -493,8 +493,9 @@ h5 {
 }
 
 .card .text {
-  width: 40ch;
+  width: 100%;
   padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 @media (min-width: 576px) {
