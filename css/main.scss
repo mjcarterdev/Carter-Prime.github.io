@@ -31,7 +31,7 @@ $screen-lg-min: 992px;
 $screen-xl-min: 1200px;
 
 // Extra large tablets and desktops
-$screen-xxl-min: 1800px;
+$screen-xxl-min: 2000px;
 
 // Small devices
 @mixin sm {
@@ -667,6 +667,7 @@ h5 {
   cursor: pointer;
   font-weight: 600;
   margin-bottom: 2rem;
+  max-width: 150px;
 
   @include sm {
     padding-left: 0rem;
@@ -991,7 +992,6 @@ h5 {
   display: flex;
   flex-direction: column;
   color: white;
-  overflow-x: hidden;
 
   h2 {
     width: fit-content;

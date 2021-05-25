@@ -95,7 +95,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .nav-bar .logo {
     margin-left: 20rem;
   }
@@ -152,7 +152,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .nav-bar .social-media a img {
     margin-left: 4rem;
   }
@@ -180,7 +180,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .nav-bar .social-media {
     margin-right: 20rem;
   }
@@ -359,7 +359,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .landing-container .landing-left {
     margin-left: 20rem;
   }
@@ -389,7 +389,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .landing-container .landing-right {
     margin-right: 20rem;
   }
@@ -511,7 +511,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .section-header {
     margin-left: 20rem;
   }
@@ -622,6 +622,7 @@ h5 {
   cursor: pointer;
   font-weight: 600;
   margin-bottom: 2rem;
+  max-width: 150px;
 }
 
 @media (min-width: 576px) {
@@ -682,7 +683,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .past-project-container {
     margin-left: 20rem;
     margin-right: 20rem;
@@ -720,7 +721,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .image-container {
     min-width: 800px;
   }
@@ -790,7 +791,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .my-skills-container {
     padding-left: 20rem;
     padding-right: 20rem;
@@ -864,7 +865,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .education-container .education-title-text {
     font-size: 3rem;
     margin-left: 20rem;
@@ -876,7 +877,7 @@ h5 {
   font-weight: 500;
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .education-container h1 {
     font-size: 3rem;
   }
@@ -955,7 +956,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .education-timeline {
     margin-left: 20rem;
   }
@@ -965,7 +966,6 @@ h5 {
   display: flex;
   flex-direction: column;
   color: white;
-  overflow-x: hidden;
 }
 
 .education-card h2 {
@@ -1024,7 +1024,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .education-card {
     margin-left: 20rem;
   }
@@ -1050,7 +1050,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .second-year {
     left: -12rem;
   }
@@ -1076,7 +1076,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .summer-studies {
     left: -12rem;
   }
@@ -1096,7 +1096,7 @@ h5 {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .first-year {
     left: -12rem;
   }
