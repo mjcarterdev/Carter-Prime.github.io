@@ -733,7 +733,6 @@ h5 {
   width: fit-content;
   max-width: 500px;
   margin: 2rem 2rem;
-  padding: 2rem;
   justify-content: center;
   align-items: center;
   justify-self: center;
@@ -741,14 +740,21 @@ h5 {
   img {
     width: 100%;
     height: auto;
-    max-height: 600px;
     object-fit: fill;
-    max-width: 500px;
+  }
+
+  @include sm {
+    min-width: 500px;
   }
 
   @include lg {
     margin: 0rem 0rem;
     justify-self: flex-end;
+    max-width: 800px;
+  }
+
+  @include xxl {
+    min-width: 800px;
   }
 }
 
