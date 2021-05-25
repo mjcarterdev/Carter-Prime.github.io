@@ -6,7 +6,7 @@ $color: (
   primaryDark: #231f34,
   secondary: #ffffff,
   blueAccent: #343dfd,
-  blueAccentBackground: #d3d5ff94,
+  blueAccentBackground: #343efd2e,
   redAccent: #f61067,
   redAccent80: rgba(246, 16, 103, 0.8),
   greenAccent: #43fc78,
@@ -77,9 +77,9 @@ $screen-xxl-min: 1800px;
   font-size: 16px;
 }
 
-* {
-  outline: 1px solid #f00 !important;
-}
+// * {
+//   outline: 1px solid #f00 !important;
+// }
 
 a {
   text-decoration: none;
@@ -681,6 +681,7 @@ h5 {
   height: fit-content;
   .section-header {
     justify-self: flex-start;
+    padding-top: 2rem;
   }
 
   .projects-grid {
@@ -713,9 +714,6 @@ h5 {
       grid-gap: 4rem;
     }
     justify-content: flex-start;
-    .section-header {
-      padding-top: 2rem;
-    }
   }
 
   @include xl {
@@ -732,38 +730,20 @@ h5 {
 .image-container {
   display: flex;
   position: relative;
-  width: 90%;
+  width: fit-content;
   max-width: 500px;
-  min-height: 500px;
-  margin: 2rem 0rem;
+  margin: 2rem 2rem;
   padding: 2rem;
   justify-content: center;
   align-items: center;
-  background-color: map-get($color, blueAccentBackground);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(2.5px);
-  -webkit-backdrop-filter: blur(8.5px);
-  border-radius: 10px;
   justify-self: center;
 
   img {
-    width: 45%;
+    width: 100%;
     height: auto;
     max-height: 600px;
     object-fit: fill;
     max-width: 500px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .img1 {
-    transform: rotate(-5deg);
-    z-index: 2;
-  }
-
-  .img2 {
-    transform: rotate(8deg);
-    z-index: 0;
   }
 
   @include lg {
