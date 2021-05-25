@@ -43,5 +43,3 @@ menuList.addEventListener('click', (e) => {
   closedMenu.classList.toggle('menu-open');
   menu.classList.toggle('show');
 });
-
-animation.setAttribute.seg;

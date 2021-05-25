@@ -358,7 +358,7 @@ h5 {
 .landing-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
   align-items: flex-start;
 
@@ -366,12 +366,14 @@ h5 {
     display: flex;
     flex-direction: column;
     width: fit-content;
-    max-width: 700px;
+    max-width: 800px;
     height: fit-content;
     margin: 2rem;
     overflow: hidden;
 
     .title {
+      width: 100%;
+      max-width: 800px;
       font-size: 2rem;
     }
 
@@ -1009,8 +1011,8 @@ h5 {
     border-bottom: solid 2px map-get($color, redAccent);
   }
   ul > li {
-    font-size: 0.8rem;
-    min-width: 220px;
+    font-size: 0.9rem;
+    min-width: 250px;
     margin-bottom: 0.6rem;
 
     @include sm {
@@ -1058,7 +1060,7 @@ h5 {
 .second-year {
   position: absolute;
   top: -1.5rem;
-  left: 6rem;
+  left: 4rem;
   width: fit-content;
 
   @include sm {
@@ -1076,7 +1078,7 @@ h5 {
 .summer-studies {
   position: absolute;
   top: 18rem;
-  left: 6rem;
+  left: 4rem;
   width: fit-content;
 
   @include sm {
@@ -1095,7 +1097,7 @@ h5 {
 .first-year {
   position: absolute;
   top: 43rem;
-  left: 6rem;
+  left: 4rem;
   width: fit-content;
 
   @include sm {

@@ -301,7 +301,7 @@ h5 {
 .landing-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
   align-items: flex-start;
 }
@@ -310,13 +310,15 @@ h5 {
   display: flex;
   flex-direction: column;
   width: fit-content;
-  max-width: 700px;
+  max-width: 800px;
   height: fit-content;
   margin: 2rem;
   overflow: hidden;
 }
 
 .landing-container .landing-left .title {
+  width: 100%;
+  max-width: 800px;
   font-size: 2rem;
 }
 
@@ -987,8 +989,8 @@ h5 {
 }
 
 .education-card ul > li {
-  font-size: 0.8rem;
-  min-width: 220px;
+  font-size: 0.9rem;
+  min-width: 250px;
   margin-bottom: 0.6rem;
 }
 
@@ -1041,7 +1043,7 @@ h5 {
 .second-year {
   position: absolute;
   top: -1.5rem;
-  left: 6rem;
+  left: 4rem;
   width: fit-content;
 }
 
@@ -1067,7 +1069,7 @@ h5 {
 .summer-studies {
   position: absolute;
   top: 18rem;
-  left: 6rem;
+  left: 4rem;
   width: fit-content;
 }
 
@@ -1093,7 +1095,7 @@ h5 {
 .first-year {
   position: absolute;
   top: 43rem;
-  left: 6rem;
+  left: 4rem;
   width: fit-content;
 }
 
