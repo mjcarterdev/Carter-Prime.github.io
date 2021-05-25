@@ -7,6 +7,10 @@
   font-size: 16px;
 }
 
+* {
+  outline: 1px solid #f00 !important;
+}
+
 a {
   text-decoration: none;
   color: #ffffff;
@@ -97,7 +101,7 @@ h5 {
 
 @media (min-width: 1800px) {
   .nav-bar .logo {
-    margin-left: 10rem;
+    margin-left: 20rem;
   }
 }
 
@@ -182,7 +186,7 @@ h5 {
 
 @media (min-width: 1800px) {
   .nav-bar .social-media {
-    margin-right: 10rem;
+    margin-right: 20rem;
   }
 }
 
@@ -309,7 +313,8 @@ h5 {
 .landing-container .landing-left {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: fit-content;
+  max-width: 700px;
   height: fit-content;
   margin: 2rem;
   overflow: hidden;
@@ -331,24 +336,74 @@ h5 {
   .landing-container .landing-left {
     margin: 0rem 6rem;
   }
+  .landing-container .landing-left .title {
+    font-size: 2.2rem;
+  }
+  .landing-container .landing-left .name {
+    font-size: 1.1rem;
+  }
 }
 
 @media (min-width: 992px) {
   .landing-container .landing-left {
-    margin: 0rem 6rem;
-    font-size: 1.2rem;
+    width: 50%;
+    margin-left: 6rem;
   }
 }
 
 @media (min-width: 1200px) {
   .landing-container .landing-left {
-    margin: 0rem 8rem;
+    margin-left: 8rem;
+  }
+  .landing-container .landing-left .title {
+    font-size: 2.4rem;
+  }
+  .landing-container .landing-left .name {
+    font-size: 1.2rem;
   }
 }
 
 @media (min-width: 1800px) {
   .landing-container .landing-left {
-    margin: 0rem 10rem;
+    margin-left: 20rem;
+  }
+  .landing-container .landing-left .title {
+    font-size: 3.5rem;
+  }
+}
+
+.landing-container .landing-right {
+  display: none;
+  width: 50%;
+  max-width: 500px;
+  background-color: green;
+}
+
+@media (min-width: 992px) {
+  .landing-container .landing-right {
+    display: flex;
+    height: 50%;
+    margin-right: 6rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .landing-container .landing-right {
+    margin-right: 8rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .landing-container .landing-right {
+    margin-right: 20rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .landing-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -462,7 +517,7 @@ h5 {
 
 @media (min-width: 1800px) {
   .section-header {
-    margin-left: 10rem;
+    margin-left: 20rem;
   }
 }
 
@@ -518,12 +573,10 @@ h5 {
   width: 100%;
   max-width: 450px;
   max-height: 500px;
-  align-self: center;
   justify-content: space-around;
   align-items: center;
-  margin-left: 1rem;
-  margin-right: 1rem;
   margin-bottom: 2rem;
+  padding: 2rem;
   background: rgba(39, 35, 58, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(10px);
@@ -556,9 +609,9 @@ h5 {
   font-weight: 500;
 }
 
-@media (min-width: 992px) {
-  .skill-card:last-child {
-    margin-right: 0rem;
+@media (min-width: 1200px) {
+  .skill-card {
+    margin: 1rem;
   }
 }
 
@@ -616,11 +669,15 @@ h5 {
 @media (min-width: 992px) {
   .past-project-container {
     font-size: 1.2rem;
+    justify-content: flex-start;
   }
   .past-project-container .projects-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-gap: 4rem;
+  }
+  .past-project-container .section-header {
+    padding-top: 2rem;
   }
 }
 
@@ -633,8 +690,8 @@ h5 {
 
 @media (min-width: 1800px) {
   .past-project-container {
-    margin-left: 10rem;
-    margin-right: 10rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
   }
 }
 
@@ -732,51 +789,55 @@ h5 {
   color: white;
   justify-self: start;
   align-self: flex-start;
-}
-
-.my-skills-container .card {
-  justify-items: center;
+  padding-top: 2rem;
 }
 
 @media (min-width: 1200px) {
   .my-skills-container {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    justify-content: flex-start;
+  }
+  .my-skills-container .section-header {
+    margin-left: 0rem;
+    padding-right: 0rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .my-skills-container {
+    padding-left: 20rem;
+    padding-right: 20rem;
+  }
+  .my-skills-container .section-header {
+    margin-left: 0rem;
+    padding-right: 0rem;
   }
 }
 
 .card-holder {
-  display: flex;
   width: 90%;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 @media (min-width: 992px) {
   .card-holder {
-    margin-left: 6rem;
-    margin-right: 6rem;
+    width: 100%;
     font-size: 1.2rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
   }
 }
 
 @media (min-width: 1200px) {
   .card-holder {
-    flex-direction: row;
-    margin-left: 11rem;
-    margin-right: 11rem;
     justify-content: space-between;
-  }
-  .card-holder .card {
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
-}
-
-@media (min-width: 1800px) {
-  .card-holder {
-    margin-left: 10rem;
-    margin-right: 10rem;
+    flex-direction: row;
   }
 }
 
@@ -793,131 +854,86 @@ h5 {
   justify-self: flex-start;
   color: white;
   width: fit-content;
+  padding-top: 2rem;
 }
 
-.education-container h1 {
+.education-container .education-title-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin-left: 2rem;
-  font-size: 1.5rem;
-  font-weight: 500;
+  margin-right: 2rem;
 }
 
 @media (min-width: 576px) {
-  .education-container h1 {
+  .education-container .education-title-text {
     margin-left: 6rem;
   }
 }
 
 @media (min-width: 1200px) {
-  .education-container h1 {
+  .education-container .education-title-text {
     margin-left: 8rem;
   }
+}
+
+@media (min-width: 1800px) {
+  .education-container .education-title-text {
+    font-size: 3rem;
+    margin-left: 20rem;
+  }
+}
+
+.education-container h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 @media (min-width: 1800px) {
   .education-container h1 {
     font-size: 3rem;
-    margin-left: 10rem;
   }
 }
 
 .education-container h4 {
-  margin-left: 2rem;
   color: white;
   font-weight: 300;
 }
 
-@media (min-width: 576px) {
-  .education-container h4 {
-    margin-left: 6rem;
-  }
-}
-
 @media (min-width: 992px) {
   .education-container h4 {
     font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .education-container h4 {
-    margin-left: 8rem;
-  }
-}
-
-@media (min-width: 1800px) {
-  .education-container h4 {
-    margin-left: 10rem;
   }
 }
 
 .education-container h5 {
-  margin-left: 2rem;
   font-weight: 300;
   margin-bottom: 4rem;
-}
-
-@media (min-width: 576px) {
-  .education-container h5 {
-    margin-left: 6rem;
-  }
 }
 
 @media (min-width: 992px) {
   .education-container h5 {
     font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .education-container h5 {
-    margin-left: 8rem;
-  }
-}
-
-@media (min-width: 1800px) {
-  .education-container h5 {
-    margin-left: 10rem;
   }
 }
 
 .line-container {
   display: flex;
   align-self: start;
-  margin-left: 2rem;
   width: 3rem;
-  height: 70%;
+  height: 100%;
 }
 
 @media (min-width: 576px) {
   .line-container {
-    margin-left: 6rem;
     width: 4rem;
-  }
-}
-
-@media (min-width: 992px) {
-  .line-container {
-    font-size: 1.5rem;
-    width: 5rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .line-container {
-    margin-left: 8rem;
-  }
-}
-
-@media (min-width: 1800px) {
-  .line-container {
-    margin-left: 10rem;
   }
 }
 
 .education-line {
   width: 100%;
-  max-width: 100px;
-  max-height: 1200px;
+  max-width: 150px;
 }
 
 .education-line .cls-1 {
@@ -929,14 +945,41 @@ h5 {
 
 .education-timeline {
   display: flex;
+  margin-left: 2rem;
   position: relative;
+}
+
+@media (min-width: 576px) {
+  .education-timeline {
+    margin-left: 6rem;
+    width: 4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .education-timeline {
+    font-size: 1.5rem;
+    width: 5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .education-timeline {
+    margin-left: 8rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .education-timeline {
+    margin-left: 20rem;
+  }
 }
 
 .education-card {
   display: flex;
   flex-direction: column;
   color: white;
-  border: 2px solid green;
+  overflow-x: hidden;
 }
 
 .education-card h2 {
@@ -950,14 +993,14 @@ h5 {
 }
 
 .education-card ul > li {
-  font-size: 1rem;
-  width: 250px;
+  font-size: 0.8rem;
+  min-width: 220px;
   margin-bottom: 0.6rem;
 }
 
 @media (min-width: 576px) {
   .education-card ul > li {
-    font-size: 1.1rem;
+    font-size: 1rem;
     width: 35ch;
   }
 }
@@ -997,7 +1040,7 @@ h5 {
 
 @media (min-width: 1800px) {
   .education-card {
-    margin-left: 10rem;
+    margin-left: 20rem;
   }
 }
 
@@ -1005,11 +1048,25 @@ h5 {
   position: absolute;
   top: -1.5rem;
   left: 6rem;
+  width: fit-content;
 }
 
 @media (min-width: 576px) {
   .second-year {
     top: -2rem;
+    left: 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .second-year {
+    top: -1.2rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .second-year {
+    left: -12rem;
   }
 }
 
@@ -1017,23 +1074,55 @@ h5 {
   position: absolute;
   top: 18rem;
   left: 6rem;
+  width: fit-content;
 }
 
 @media (min-width: 576px) {
   .summer-studies {
-    top: 23rem;
+    top: 25rem;
+    left: 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .summer-studies {
+    top: 25rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .summer-studies {
+    left: -12rem;
   }
 }
 
 .first-year {
   position: absolute;
-  top: 42.5rem;
+  top: 43rem;
   left: 6rem;
+  width: fit-content;
 }
 
 @media (min-width: 576px) {
   .first-year {
-    top: 54.1rem;
+    top: 52.1rem;
+    left: 2rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .first-year {
+    left: -12rem;
+  }
+}
+
+.cls-2 {
+  transform: translateY(-90px);
+}
+
+@media (min-width: 576px) {
+  .cls-2 {
+    transform: translateY(-170px);
   }
 }
 

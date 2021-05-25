@@ -77,6 +77,10 @@ $screen-xxl-min: 1800px;
   font-size: 16px;
 }
 
+* {
+  outline: 1px solid #f00 !important;
+}
+
 a {
   text-decoration: none;
   color: map-get($color, secondary);
@@ -157,7 +161,7 @@ h5 {
     }
 
     @include xxl {
-      margin-left: 10rem;
+      margin-left: 20rem;
     }
   }
 
@@ -228,7 +232,7 @@ h5 {
     }
 
     @include xxl {
-      margin-right: 10rem;
+      margin-right: 20rem;
     }
   }
 }
@@ -361,7 +365,8 @@ h5 {
   .landing-left {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: fit-content;
+    max-width: 700px;
     height: fit-content;
     margin: 2rem;
     overflow: hidden;
@@ -379,20 +384,67 @@ h5 {
 
     @include sm {
       margin: 0rem 6rem;
+
+      .title {
+        font-size: 2.2rem;
+      }
+
+      .name {
+        font-size: 1.1rem;
+      }
     }
 
     @include lg {
-      margin: 0rem 6rem;
-      font-size: 1.2rem;
+      width: 50%;
+      margin-left: 6rem;
     }
 
     @include xl {
-      margin: 0rem 8rem;
+      margin-left: 8rem;
+      .title {
+        font-size: 2.4rem;
+      }
+
+      .name {
+        font-size: 1.2rem;
+      }
     }
 
     @include xxl {
-      margin: 0rem 10rem;
+      margin-left: 20rem;
+
+      .title {
+        font-size: 3.5rem;
+      }
     }
+  }
+
+  .landing-right {
+    display: none;
+    width: 50%;
+    max-width: 500px;
+
+    background-color: green;
+
+    @include lg {
+      display: flex;
+      height: 50%;
+      margin-right: 6rem;
+    }
+
+    @include xl {
+      margin-right: 8rem;
+    }
+
+    @include xxl {
+      margin-right: 20rem;
+    }
+  }
+
+  @include lg {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -515,7 +567,7 @@ h5 {
   }
 
   @include xxl {
-    margin-left: 10rem;
+    margin-left: 20rem;
   }
 }
 
@@ -563,12 +615,10 @@ h5 {
   width: 100%;
   max-width: 450px;
   max-height: 500px;
-  align-self: center;
   justify-content: space-around;
   align-items: center;
-  margin-left: 1rem;
-  margin-right: 1rem;
   margin-bottom: 2rem;
+  padding: 2rem;
 
   background: rgba(39, 35, 58, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -600,11 +650,9 @@ h5 {
       font-weight: 500;
     }
   }
-}
 
-.skill-card:last-child {
-  @include lg {
-    margin-right: 0rem;
+  @include xl {
+    margin: 1rem;
   }
 }
 
@@ -664,6 +712,10 @@ h5 {
       grid-template-rows: auto;
       grid-gap: 4rem;
     }
+    justify-content: flex-start;
+    .section-header {
+      padding-top: 2rem;
+    }
   }
 
   @include xl {
@@ -672,8 +724,8 @@ h5 {
   }
 
   @include xxl {
-    margin-left: 10rem;
-    margin-right: 10rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
   }
 }
 
@@ -769,44 +821,57 @@ h5 {
     color: white;
     justify-self: start;
     align-self: flex-start;
+    padding-top: 2rem;
   }
-  .card {
-    justify-items: center;
+
+  @include lg {
   }
 
   @include xl {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+
+    .section-header {
+      margin-left: 0rem;
+      padding-right: 0rem;
+    }
+
+    justify-content: flex-start;
+  }
+
+  @include xxl {
+    padding-left: 20rem;
+    padding-right: 20rem;
+
+    .section-header {
+      margin-left: 0rem;
+      padding-right: 0rem;
+    }
   }
 }
 
 .card-holder {
-  display: flex;
   width: 90%;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
 
   @include lg {
-    margin-left: 6rem;
-    margin-right: 6rem;
+    width: 100%;
     font-size: 1.2rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
   }
 
   @include xl {
-    flex-direction: row;
-    margin-left: 11rem;
-    margin-right: 11rem;
     justify-content: space-between;
-
-    .card {
-      margin-left: 2rem;
-      margin-right: 2rem;
-    }
+    flex-direction: row;
   }
 
   @include xxl {
-    margin-left: 10rem;
-    margin-right: 10rem;
   }
 }
 
@@ -824,12 +889,17 @@ h5 {
     justify-self: flex-start;
     color: white;
     width: fit-content;
+    padding-top: 2rem;
   }
 
-  h1 {
+  .education-title-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin-left: 2rem;
-    font-size: 1.5rem;
-    font-weight: 500;
+    margin-right: 2rem;
+
     @include sm {
       margin-left: 6rem;
     }
@@ -843,51 +913,34 @@ h5 {
 
     @include xxl {
       font-size: 3rem;
-      margin-left: 10rem;
+      margin-left: 20rem;
+    }
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    @include xxl {
+      font-size: 3rem;
     }
   }
 
   h4 {
-    margin-left: 2rem;
     color: white;
     font-weight: 300;
 
-    @include sm {
-      margin-left: 6rem;
-    }
-
     @include lg {
       font-size: 1.5rem;
-    }
-
-    @include xl {
-      margin-left: 8rem;
-    }
-
-    @include xxl {
-      margin-left: 10rem;
     }
   }
 
   h5 {
-    margin-left: 2rem;
     font-weight: 300;
     margin-bottom: 4rem;
 
-    @include sm {
-      margin-left: 6rem;
-    }
-
     @include lg {
       font-size: 1.5rem;
-    }
-
-    @include xl {
-      margin-left: 8rem;
-    }
-
-    @include xxl {
-      margin-left: 10rem;
     }
   }
 }
@@ -895,9 +948,39 @@ h5 {
 .line-container {
   display: flex;
   align-self: start;
-  margin-left: 2rem;
   width: 3rem;
-  height: 70%;
+  height: 100%;
+
+  @include sm {
+    width: 4rem;
+  }
+
+  @include lg {
+  }
+
+  @include xl {
+  }
+
+  @include xxl {
+  }
+}
+
+.education-line {
+  width: 100%;
+  max-width: 150px;
+
+  .cls-1 {
+    fill: none;
+    stroke: #f61067;
+    stroke-miterlimit: 10;
+    stroke-width: 3px;
+  }
+}
+
+.education-timeline {
+  display: flex;
+  margin-left: 2rem;
+  position: relative;
 
   @include sm {
     margin-left: 6rem;
@@ -914,32 +997,15 @@ h5 {
   }
 
   @include xxl {
-    margin-left: 10rem;
+    margin-left: 20rem;
   }
-}
-
-.education-line {
-  width: 100%;
-  max-width: 100px;
-  max-height: 1200px;
-  .cls-1 {
-    fill: none;
-    stroke: #f61067;
-    stroke-miterlimit: 10;
-    stroke-width: 3px;
-  }
-}
-
-.education-timeline {
-  display: flex;
-  position: relative;
 }
 
 .education-card {
   display: flex;
   flex-direction: column;
   color: white;
-  border: 2px solid green;
+  overflow-x: hidden;
 
   h2 {
     width: fit-content;
@@ -951,12 +1017,12 @@ h5 {
     border-bottom: solid 2px map-get($color, redAccent);
   }
   ul > li {
-    font-size: 1rem;
-    width: 250px;
+    font-size: 0.8rem;
+    min-width: 220px;
     margin-bottom: 0.6rem;
 
     @include sm {
-      font-size: 1.1rem;
+      font-size: 1rem;
       width: 35ch;
     }
 
@@ -993,7 +1059,7 @@ h5 {
   }
 
   @include xxl {
-    margin-left: 10rem;
+    margin-left: 20rem;
   }
 }
 
@@ -1001,28 +1067,60 @@ h5 {
   position: absolute;
   top: -1.5rem;
   left: 6rem;
+  width: fit-content;
 
   @include sm {
     top: -2rem;
+    left: 2rem;
+  }
+
+  @include lg {
+    top: -1.2rem;
+  }
+  @include xxl {
+    left: -12rem;
   }
 }
 .summer-studies {
   position: absolute;
   top: 18rem;
   left: 6rem;
+  width: fit-content;
 
   @include sm {
-    top: 23rem;
+    top: 25rem;
+    left: 2rem;
+  }
+
+  @include lg {
+    top: 25rem;
+  }
+  @include xxl {
+    left: -12rem;
   }
 }
 
 .first-year {
   position: absolute;
-  top: 42.5rem;
+  top: 43rem;
   left: 6rem;
+  width: fit-content;
 
   @include sm {
-    top: 54.1rem;
+    top: 52.1rem;
+    left: 2rem;
+  }
+
+  @include xxl {
+    left: -12rem;
+  }
+}
+
+.cls-2 {
+  transform: translateY(-90px);
+
+  @include sm {
+    transform: translateY(-170px);
   }
 }
 
