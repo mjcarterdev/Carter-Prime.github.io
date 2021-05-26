@@ -7,17 +7,18 @@ const menuList = document.querySelector('.menu-list');
 
 let isMenuOpen = false;
 
-var animation = bodymovin.loadAnimation({
+var animation = lottie.loadAnimation({
   container: document.getElementById('lottie'), // Required
-  path: 'https://assets1.lottiefiles.com/packages/lf20_47dwpmff.json', // Required
+  path: '../assets/lottie/developer-at-work-animation.json', // Required
   renderer: 'svg', // Required
   loop: true, // Optional
   autoplay: true, // Optional
   name: 'Hello World', // Name for future reference. Optional.
-  initialSegment: [0, 90],
 });
 
-var animationScrollDown = bodymovin.loadAnimation({
+animation.play();
+
+var animationScrollDown = lottie.loadAnimation({
   container: document.getElementById('scroll-down-animation'), // Required
   path: '../assets/lottie/scroll-down.json', // Required
   renderer: 'svg', // Required
@@ -26,7 +27,7 @@ var animationScrollDown = bodymovin.loadAnimation({
   name: 'Hello World', // Name for future reference. Optional.
 });
 
-animationScrollDown.setSpeed(0.8);
+animationScrollDown.play();
 
 // TOGGLE MENU ACTIVE STATE
 menuToggle.addEventListener('click', (e) => {
