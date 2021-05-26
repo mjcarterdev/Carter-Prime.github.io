@@ -67,6 +67,8 @@ h5 {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .nav-bar .logo {
@@ -137,13 +139,13 @@ h5 {
 }
 
 .nav-bar .social-media a {
-  margin-left: 0.5rem;
+  margin-left: 1rem;
   padding: 0.1rem;
 }
 
 .nav-bar .social-media a img {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 }
 
 @media (min-width: 576px) {
@@ -213,7 +215,7 @@ h5 {
   background: transparent;
   outline: 0;
   right: 20px;
-  top: 1px;
+  top: 5px;
   cursor: pointer;
   border-radius: 50%;
   transition: background-color 0.15s linear;
