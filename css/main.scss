@@ -192,26 +192,38 @@ h5 {
   .social-media {
     display: flex;
     flex-direction: row;
-    margin-right: 5rem;
+    margin-right: 100px;
     padding: 5px;
     margin-top: 5px;
     align-items: center;
 
     a {
-      margin-left: 1rem;
-      padding: 0.5rem;
+      margin-left: 0.5rem;
+      padding: 0.1rem;
 
       img {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
+
+        @include sm {
+          transform: scale(1.3);
+        }
 
         @include md {
-          transform: scale(1.3);
+          transform: scale(1.5);
         }
 
         @include xxl {
           margin-left: 4rem;
         }
+      }
+
+      @include sm {
+        padding: 0.5rem;
+      }
+
+      @include sm {
+        margin-left: 1rem;
       }
     }
 
@@ -247,7 +259,7 @@ h5 {
   background: transparent;
   outline: 0;
   right: 20px;
-  top: 5px;
+  top: 1px;
   cursor: pointer;
   border-radius: 50%;
   transition: background-color 0.15s linear;
@@ -255,6 +267,10 @@ h5 {
   &:hover,
   &:focus {
     background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  @include sm {
+    top: 5px;
   }
 
   @include xl {
@@ -1010,8 +1026,8 @@ h5 {
     border-bottom: solid 2px map-get($color, redAccent);
   }
   ul > li {
-    font-size: 0.9rem;
-    min-width: 250px;
+    font-size: 0.8rem;
+    min-width: 220px;
     margin-bottom: 0.6rem;
 
     @include sm {
